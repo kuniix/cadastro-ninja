@@ -1,17 +1,23 @@
-package dev.java10x.cadastro_ninja;
+package dev.java10x.cadastro_ninja.Ninjas;
 
+import dev.java10x.cadastro_ninja.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name = "ninja")
+@Table(name = "tb_cadastro")
 public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     private String name;
     private String email;
     private int idade;
+    @ManyToOne ////ManyToOne um ninja tem uma unica missao
+    @JoinColumn(name = "missoes_id") //chave estrangeira
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
