@@ -2,11 +2,17 @@ package dev.java10x.cadastro_ninja.Missoes;
 
 import dev.java10x.cadastro_ninja.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "tb_missoes")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class MissoesModel {
 
     @Id
@@ -17,31 +23,4 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes") //muitos ninjas só podem ter uma missao
     private List<NinjaModel> ninja;
 
-    public MissoesModel() {
-    }
-
-    public MissoesModel(String nomeDaMissao, String rank) {
-        this.nomeDaMissao = nomeDaMissao;
-        this.rank = rank;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nomeDaMissao;
-    }
-
-    public void setNome(String nome) {
-        this.nomeDaMissao = nome;
-    }
-
-    public String getRank() {
-        return rank;
-    }
-
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
 }
