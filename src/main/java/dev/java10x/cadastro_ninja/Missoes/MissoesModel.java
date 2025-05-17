@@ -18,9 +18,12 @@ public class MissoesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nomeDaMissao;
-    private String rank;
-    @OneToMany(mappedBy = "missoes") //muitos ninjas só podem ter uma missao
-    private List<NinjaModel> ninja;
 
+    @Column(name = "NOMEMISSAO") // Add this annotation
+    private String nomeMissao;
+
+    private String dificuldade;
+
+    @OneToMany(mappedBy = "missoes")
+    private List<NinjaModel> ninja;
 }
