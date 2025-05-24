@@ -21,15 +21,16 @@ public class NinjaController {
     }
 
     // Mostrar todos os Ninjas
-    @GetMapping("/listarTodosNinjas")
+    @GetMapping("/listar")
     public List<NinjaModel> listarTodosNinjas() {
         return ninjaService.listarTodosNinjas();
     }
 
     // Mostrar Ninja2 por ID
-    @GetMapping("/listarNinjaPorID")
-    public String mostrarNinjaPorID() {
-        return "Ninja por ID";
+    // localhost:8080/ninja/listarNinjaPorID/1...
+    @GetMapping("/listar/{id}")
+    public NinjaModel listarNinjaPorID(@PathVariable Long id) {
+        return ninjaService.listarNinjaPorID(id);
     }
 
     // Atualizar Ninja
