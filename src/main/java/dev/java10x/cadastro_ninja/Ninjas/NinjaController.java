@@ -1,10 +1,18 @@
 package dev.java10x.cadastro_ninja.Ninjas;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/ninjas")
+@RequestMapping("/ninja")
 public class NinjaController {
+
+    @Autowired
+    private NinjaService ninjaService;
+
+
 
     // Criar Ninja
     @GetMapping("/adicionarNinja")
@@ -14,11 +22,11 @@ public class NinjaController {
 
     // Mostrar todos os Ninjas
     @GetMapping("/listarTodosNinjas")
-    public String mostrarTodosNinjas() {
-        return "Todos os Ninjas";
+    public List<NinjaModel> listarTodosNinjas() {
+        return ninjaService.listarTodosNinjas();
     }
 
-    // Mostrar Ninja por ID
+    // Mostrar Ninja2 por ID
     @GetMapping("/listarNinjaPorID")
     public String mostrarNinjaPorID() {
         return "Ninja por ID";
