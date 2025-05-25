@@ -12,12 +12,10 @@ public class NinjaController {
     @Autowired
     private NinjaService ninjaService;
 
-
-
     // Criar Ninja
-    @GetMapping("/adicionarNinja")
-    public String adicionarNinja() {
-        return "Ninja adicionado com sucesso!";
+    @PostMapping("/criar")
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninjaModel) {
+        return ninjaService.criarNinja(ninjaModel);
     }
 
     // Mostrar todos os Ninjas
